@@ -20,8 +20,7 @@
 ---
 
 ## Brainstorm Page
-
-*(Add your brainstorming notes, sketches, and raw ideas here.)*
+![Brainstorm Image](images/brainstorm.png)
 
 ---
 
@@ -29,33 +28,54 @@
 
 ### Types of Users/Roles
 - **Student**  
-- **TA**  
 - **Instructor**  
 - **Admin**
 
+---
+
 ### Student User Stories
-*(List user stories for students here.)*
+- As a learner, I would want to enroll in the available course.  
+- As a learner, I would like to view my assignments timeline → upcoming, open, closed with due dates.  
+- As a learner, I would like to see feedback & rubric → inline comments, rubric breakdown, test results.  
+- As a learner, I would like to see my overall grade and the grade breakdown, and see how I am doing in the course.  
+- As a learner, I would like to have customization within my profile and the look of my LMS.  
+
+---
 
 ### Instructor User Stories
-*(List user stories for instructors here.)*
+- As an instructor, I want to create a course → course material, and even assign additional roles (TA if time allows it).  
+- As an instructor, I would want to create assignments & problems → add tests, rubric, and preview.  
+- As an instructor, I would like to have learners be able to view certain material at certain times of the course.  
+- As an instructor, I would like to grade my assignments → rubrics, inline comments, and see submissions.  
+- As an instructor, I would like to see how much of the class has completed the assignments.  
+- As an instructor, I would like to share news with my students whenever I deem necessary.  
+
+---
 
 ### Admin User Stories
-*(List user stories for admins here.)*
+- As admin, I would like to manage all users & roles → CRUD on roles.  
+- As admin, I would like to add, delete, and move the students whenever needed.  
+- As an admin, I would like to make announcements in case of system updates or emergencies.  
+
+---
 
 ### Non-Role-Based Requirements
-*(General requirements not tied to a specific role.)*
+- Accessibility → Have some formality with the WCAG guidelines.  
+- Good usability with a friendly user experience flow.  
+- Encourage users with small things (like confetti after a submission).  
+- New submission type to help with Discrete Math, similar to the buggy Discord command in the UDCIS Discord.  
 
 ---
 
 ## Site Model
-*(Include your sitemap or navigation flow here.)*
+![Site Model Image](images/site-model.png)  
 
 ---
 
 ## Wireframes
-*(Add screenshots, sketches, or descriptions of wireframes here.)*
+![Wireframes Images](images/wireframes.png)  
 
 ---
 
 ## Data Model Diagram
-*(Insert ER diagrams or schema diagrams here.)*
+![Data Model Diagram Image](images/data-model.png)  
