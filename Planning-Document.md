@@ -20,7 +20,7 @@
 ---
 
 ## Brainstorm Page
-![Brainstorm Image](images/brainstorm.png)
+![Brainstorm Image](images/brainstorm.jpg)
 
 ---
 
@@ -68,14 +68,14 @@
 ---
 
 ## Site Model
-![Site Model Image](images/site-model.png)  
+![Site Model Image](images/sitemap.png)  
 
 ---
 
 ## Wireframes
-![Wireframes Images](images/wireframes.png)  
+![Wireframes Images](images/wireframe.jpg)  
 
 ---
 
 ## Data Model Diagram
-![Data Model Diagram Image](images/data-model.png)  
+![Data Model Diagram Image](images/datamodel.png)  
