@@ -15,6 +15,7 @@ export default function Dashboard() {
           <Link href="/courses/2">Course 2: Web Development</Link>
         </li>
       </ul>
+      <Link href="/profile">Click here for Dashboard</Link>
     </div>
   );
 }

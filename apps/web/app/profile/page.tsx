@@ -21,7 +21,7 @@ export default function Profile() {
           <button className={styles.button}>Edit</button>
           <button className={`${styles.button} ${styles.delete}`}>Delete</button>4
 
-          <Link href="/page.tsx" className={styles.linkButton}>Go to Profile Settings</Link>
+          <Link href="./dashboard" className={styles.linkButton}>Go to Profile Settings</Link>
         </div>
       </div>
     </div>
