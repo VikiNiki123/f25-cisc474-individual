@@ -22,7 +22,7 @@ export default function Home() {
     return (
         <div className={styles.page}>
             <main className={styles.main}>
-                <h1>CISC474 Project Starter</h1>
+                <h1>Victoria's LMS System</h1>
                 <ol>
                     <li>
                         Get started by editing{" "}
