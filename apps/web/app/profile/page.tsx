@@ -2,11 +2,6 @@ export default function ProfilePage() {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">Profile</h2>
-      <img
-        src="https://placehold.co/100"
-        alt="Profile"
-        className="rounded-full mb-4"
-      />
       <p><strong>Name:</strong> Jane Doe</p>
       <p><strong>Major:</strong> Computer Science</p>
       <p><strong>Graduation Year:</strong> 2026</p>
