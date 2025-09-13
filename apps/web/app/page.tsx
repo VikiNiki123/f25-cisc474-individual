@@ -1,5 +1,7 @@
-import Link from "next/link";
+"use client";
 import styles from "./page.module.css";
+import Link from "next/link";
+
 
 {/*Login In Page */}
 export default function Home() {
@@ -9,7 +11,7 @@ export default function Home() {
                 <input type="text" id="username" className="username"></input>
                 <input type="text" id="password" className="password"></input>
                 <nav>
-                    <Link className="Log In" href="/dashboard">Log In</Link>
+                    <Link className="Log In" href="./dashboard">Log In</Link>
                 </nav>
                 
             </main>
