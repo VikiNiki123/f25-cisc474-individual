@@ -13,7 +13,7 @@ export default function Assignment() {
       <p>Course: {courseId}</p>
       <p>Here’s where students can view assignment details and submit their work.</p>
 
-      <Link href={`/courses/${courseId}`}>Back to Course</Link>
+      <Link href={`/course/${courseId}`}>Back to Course</Link>
     </div>
   );
 }

@@ -9,10 +9,10 @@ export default function Dashboard() {
       <p>Welcome! Select a course to start:</p>
       <ul>
         <li>
-          <Link href="/courses/1">Course 1: Intro to CS</Link>
+          <Link href="/course/1">Course 1: Intro to CS</Link>
         </li>
         <li>
-          <Link href="/courses/2">Course 2: Web Development</Link>
+          <Link href="/course/2">Course 2: Web Development</Link>
         </li>
       </ul>
       <Link href="/profile">Click here for Dashboard</Link>

@@ -13,10 +13,10 @@ export default function Course() {
       <p>Assignments for this course:</p>
       <ul>
         <li>
-          <Link href={`/courses/${courseId}/assignments/1`}>Assignment 1</Link>
+          <Link href={`/course/${courseId}/assignment/1`}>Assignment 1</Link>
         </li>
         <li>
-          <Link href={`/courses/${courseId}/assignments/2`}>Assignment 2</Link>
+          <Link href={`/course/${courseId}/assignment/2`}>Assignment 2</Link>
         </li>
       </ul>
       <Link href="/dashboard">Back to Dashboard</Link>
