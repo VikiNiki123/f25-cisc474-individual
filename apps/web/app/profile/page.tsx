@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+//import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
 
@@ -11,13 +11,6 @@ export default function Profile() {
 
       <div className={styles.profileContent}>
         <div className={styles.profileImage}>
-          <Image
-            src=""
-            alt="Profile"
-            width={200}
-            height={200}
-            className={styles.img}
-          />
         </div>
 
         <div className={styles.profileInfo}>
