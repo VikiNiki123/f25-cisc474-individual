@@ -1,0 +1,33 @@
+"use client";
+import Image from "next/image";
+import styles from "./profile.module.css";
+
+export default function ProfilePage() {
+  return (
+    <div className={styles.main}>
+      <h1>Profile Settings</h1>
+      <hr />
+
+      <div className={styles.profileContent}>
+        <div className={styles.profileImage}>
+          <Image
+            src=""
+            alt="Profile"
+            width={200}
+            height={200}
+            className={styles.img}
+          />
+        </div>
+
+        <div className={styles.profileInfo}>
+          <p><strong>Name:</strong> Jane Doe</p>
+          <p><strong>Major:</strong> Computer Science</p>
+          <p><strong>Graduation Year:</strong> 2026</p>
+          <p><strong>GPA:</strong> 3.8</p>
+          <button className={styles.button}>Edit</button>
+          <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+        </div>
+      </div>
+    </div>
+  );
+}
