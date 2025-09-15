@@ -1,5 +1,4 @@
 "use client";
-//import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
 
@@ -18,7 +17,7 @@ export default function Profile() {
           <p><strong>Graduation Year:</strong> 2026</p>
           <p><strong>GPA:</strong> 3.8</p>
           <button className={styles.button}>Edit</button>
-          <button className={`${styles.button} ${styles.delete}`}>Delete</button>4
+          <button className={`${styles.button} ${styles.delete}`}>Delete</button>
 
           <Link href="./dashboard" className={styles.linkButton}>Go to Profile Settings</Link>
         </div>
