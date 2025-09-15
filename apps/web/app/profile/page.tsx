@@ -7,7 +7,6 @@ export default function Profile() {
   return (
     <div className={styles.main}>
       <h1>Profile Settings</h1>
-      <hr />
 
       <div className={styles.profileContent}>
         <div className={styles.profileImage}>
