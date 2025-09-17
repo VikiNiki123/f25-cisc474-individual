@@ -1,0 +1,444 @@
+/* ==== Assignments Container ==== */
+.assignmentsContainer {
+  min-height: 100vh;
+  background-color: #f9f9f6;
+  margin-left: 240px; /* Account for sidebar width */
+  transition: margin-left 0.3s ease;
+}
+
+/* ==== Module Header ==== */
+.moduleHeader {
+  background-color: #1e5631;
+  color: white;
+  padding: 2rem;
+  border-bottom: 2px solid #145222;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.backLink {
+  color: #a8d4b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  align-self: flex-start;
+}
+
+.backLink:hover {
+  color: white;
+}
+
+.moduleTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.moduleSubtitle {
+  font-size: 1rem;
+  margin: 0;
+  color: #a8d4b8;
+}
+
+/* ==== Assignments Grid ==== */
+.assignmentsGrid {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ==== Assignment Card ==== */
+.assignmentCard {
+  background-color: white;
+  border: 2px solid #e0e0dc;
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.assignmentCard.pending {
+  border-left: 6px solid #ffc107;
+}
+
+.assignmentCard.upcoming {
+  border-left: 6px solid #28a745;
+}
+
+.assignmentCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(30, 86, 49, 0.15);
+  border-color: #2e7047;
+}
+
+/* ==== Assignment Header ==== */
+.assignmentHeader {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.assignmentTitleSection {
+  flex: 1;
+}
+
+.assignmentTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e5631;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.courseInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.courseCode {
+  background-color: #2e7047;
+  color: white;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.courseName {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.assignmentMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.statusBadge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.statusBadge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.statusBadge.upcoming {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.pointsValue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2e7047;
+}
+
+/* ==== Due Date Section ==== */
+.dueDateSection {
+  padding: 1rem 1.5rem;
+  background-color: #f8f9f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dueDateInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dueDateLabel {
+  color: #666;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.dueDate {
+  color: #1e5631;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.dueTime {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.timeRemaining {
+  font-size: 0.85rem;
+  color: #e67e22;
+  font-weight: 600;
+  background-color: white;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  border: 1px solid #ffeaa7;
+}
+
+/* ==== Assignment Description ==== */
+.assignmentDescription {
+  padding: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.assignmentDescription p {
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ==== Requirements Section ==== */
+.requirementsSection {
+  padding: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.requirementsSection h4 {
+  margin: 0 0 1rem 0;
+  color: #1e5631;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.requirementsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.requirementItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.checkIcon {
+  color: #28a745;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* ==== Assignment Details ==== */
+.assignmentDetails {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detailLabel {
+  color: #666;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.detailValue {
+  color: #333;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.statusText.pending {
+  color: #e67e22;
+}
+
+.statusText.upcoming {
+  color: #666;
+}
+
+/* ==== Assignment Actions ==== */
+.assignmentActions {
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.actionButton {
+  flex: 1;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.primaryButton {
+  background-color: #2e7047;
+  color: white;
+}
+
+.primaryButton:hover {
+  background-color: #1e5631;
+  transform: translateY(-1px);
+}
+
+.secondaryButton {
+  background-color: #f8f9f8;
+  color: #2e7047;
+  border: 2px solid #e0e0dc;
+}
+
+.secondaryButton:hover {
+  background-color: #2e7047;
+  color: white;
+  border-color: #2e7047;
+}
+
+/* ==== Module Footer ==== */
+.footer {
+  padding: 2rem;
+  background-color: white;
+  border-top: 1px solid #e0e0dc;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin-top: auto;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.viewAllLink {
+  color: #2e7047;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.viewAllLink:hover {
+  color: #1e5631;
+}
+
+/* ==== Responsive Design ==== */
+@media (max-width: 1024px) {
+  .assignmentsContainer {
+    margin-left: 200px;
+  }
+  
+  .assignmentsGrid {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .assignmentsContainer {
+    margin-left: 0;
+  }
+  
+  .assignmentsGrid {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .moduleHeader {
+    padding: 1.5rem;
+  }
+  
+  .moduleTitle {
+    font-size: 1.6rem;
+  }
+  
+  .assignmentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .assignmentMeta {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .dueDateSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .assignmentActions {
+    flex-direction: column;
+  }
+  
+  .footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0e0dc;
+  }
+}
+
+@media (max-width: 480px) {
+  .assignmentsGrid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+  
+  .assignmentCard {
+    border-radius: 12px;
+  }
+  
+  .assignmentHeader,
+  .assignmentDescription,
+  .requirementsSection,
+  .assignmentDetails,
+  .assignmentActions {
+    padding: 1rem;
+  }
+  
+  .dueDateSection {
+    padding: 1rem;
+  }
+  
+  .assignmentTitle {
+    font-size: 1.2rem;
+  }
+}

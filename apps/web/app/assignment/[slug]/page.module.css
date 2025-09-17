@@ -1,0 +1,21 @@
+/* ==== Not Found Card ==== */
+.notFoundCard {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.notFoundCard h1 {
+  margin-bottom: 1rem;
+  color: #2e4d38;
+}
+
+.notFoundCard a {
+  color: #4d7c5d;
+  text-decoration: none;
+  font-weight: 600;
+}

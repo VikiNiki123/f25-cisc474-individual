@@ -1,0 +1,377 @@
+/* ==== Dashboard Container ==== */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f9f9f6;
+  margin-left: 240px; /* Account for sidebar navigation */
+  transition: margin-left 0.3s ease;
+}
+
+/* ==== Navigation Bar ==== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e5631;
+  color: white;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #145222;
+}
+
+.navTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.backLink {
+  color: #fff;
+  text-decoration: none;
+  background-color: #2e7047;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.backLink:hover {
+  background-color: #3e8057;
+  transform: translateX(-2px);
+}
+
+/* ==== Main Content Layout ==== */
+.mainContent {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex: 1;
+}
+
+/* ==== Courses Section ==== */
+.coursesSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ==== Section Header ==== */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  color: #1e5631;
+  margin: 0;
+  font-weight: bold;
+}
+
+.courseStats {
+  display: flex;
+  gap: 2rem;
+}
+
+.courseStats .statItem {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.courseStats .statItem strong {
+  color: #1e5631;
+  font-size: 1.1rem;
+}
+
+/* ==== Course Grid ==== */
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ==== Course Cards ==== */
+.courseCard {
+  background-color: white;
+  border: 2px solid #e0e0dc;
+  border-radius: 12px;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.courseCard:hover {
+  border-color: #2e7047;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 86, 49, 0.15);
+}
+
+/* ==== Card Header ==== */
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.courseImage {
+  width: 60px;
+  height: 60px;
+  background-color: #2e7047;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.courseInfo {
+  flex: 1;
+}
+
+.courseTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e5631;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.instructor {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.courseStatus {
+  text-align: right;
+}
+
+.meetsIn {
+  font-size: 0.8rem;
+  color: #666;
+  background-color: #f8f9f8;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ==== Card Body ==== */
+.cardBody {
+  padding: 1rem 1.5rem;
+}
+
+/* ==== Progress Section ==== */
+.progressSection {
+  margin-bottom: 1rem;
+}
+
+.progressLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.progressLabel span:last-child {
+  font-weight: 600;
+  color: #1e5631;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background-color: #e0e0dc;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #2e7047, #1e5631);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* ==== Announcement Section ==== */
+.announcement {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background-color: #f8f9f8;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #ffd700;
+}
+
+.announcementIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.announcement p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* ==== Assignment Alert ==== */
+.assignmentAlert {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #856404;
+  font-weight: 500;
+}
+
+.alertIcon {
+  flex-shrink: 0;
+}
+
+/* ==== Card Footer ==== */
+.cardFooter {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #f0f0f0;
+  background-color: #fafafa;
+}
+
+.enterCourse {
+  color: #2e7047;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.courseCard:hover .enterCourse {
+  color: #1e5631;
+}
+
+.footer{
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #e0e0dc;
+  margin-top: auto;
+}
+
+
+/* ==== Responsive Design ==== */
+@media (max-width: 1024px) {
+  .dashboard {
+    margin-left: 200px;
+  }
+  
+  .sidebar {
+    width: 250px;
+  }
+  
+  .courseGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .courseStats {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    margin-left: 0;
+  }
+  
+  .mainContent {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .sidebar {
+    width: 100%;
+  }
+  
+  .navbar {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .navActions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .courseGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .courseImage {
+    align-self: center;
+  }
+  
+  .courseStatus {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 0.5rem;
+  }
+  
+  .courseCard {
+    margin: 0;
+  }
+  
+  .cardHeader,
+  .cardBody,
+  .cardFooter {
+    padding: 1rem;
+  }
+  
+  .statsCard,
+  .deadlinesCard,
+  .quickActions {
+    padding: 1rem;
+  }
+  
+  .courseStats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

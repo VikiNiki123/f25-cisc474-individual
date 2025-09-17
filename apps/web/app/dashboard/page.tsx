@@ -2,20 +2,137 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 
+// Course data matching your actual courses
+const courses = [
+  { 
+    title: "Advanced Web Technologies", 
+    slug: "cisc474", 
+    code: "CISC474",
+    instructor: "Dr. Johnson",
+    assignments: [
+      { title: "Project Phase 1", dueDate: "Sept 21", status: "pending" },
+      { title: "Lab Assignment 3", dueDate: "Sept 25", status: "upcoming" }
+    ],
+    announcement: "Welcome to the first week of advanced web development!",
+  },
+  { 
+    title: "Senior Capstone", 
+    slug: "cisc498", 
+    code: "CISC498",
+    instructor: "Prof. John",
+    assignments: [
+      { title: "Resume Revisions 1", dueDate: "Sept 22", status: "pending" },
+      { title: "Sprint Report", dueDate: "Sept 27", status: "upcoming" }
+    ],
+    announcement: "Class (9/19) is cancelled due to Victoria's bad joke!",
+  }
+];
+
 export default function Dashboard() {
   return (
-    <div className={styles.page}>
-      <h1>Dashboard</h1>
-      <p>Welcome! Select a course to start:</p>
-      <ul>
-        <li>
-          <Link href="/course/1">Course 1: Intro to CS</Link>
-        </li>
-        <li>
-          <Link href="/course/2">Course 2: Web Development</Link>
-        </li>
-      </ul>
-      <Link href="/profile">Click here for Dashboard</Link>
+    <div className={styles.dashboard}>
+      {/* Navigation Header */}
+      <div className={styles.navbar}>
+        <h1 className={styles.navTitle}>Student Dashboard ༄˖°.🍃.ೃ࿔*:･</h1>
+        <div className={styles.navActions}>
+          <span>Welcome back, Victoria</span>
+          <Link href="./profile">
+            <div className={styles.profileIcon}></div>
+          </Link>
+        </div>
+      </div>
+
+      <div className={styles.mainContent}>
+        {/* Left Content - Course Cards */}
+        <div className={styles.coursesSection}>
+          {/* Course Display - Updated to match wireframe */}
+          <div className={styles.courseGrid}>
+            {courses.map((course) => (
+              <Link key={course.slug} href={`/course/${course.slug}`} className={styles.courseCard}>
+                {/* Course Image */}
+                <div className={styles.courseImage}></div>
+                
+                {/* Course Content */}
+                <div className={styles.cardContent}>
+                  {/* Course Info */}
+                  <div className={styles.courseInfo}>
+                    <div className={styles.courseTitle}>
+                      <h3>{course.title}</h3>
+                      <span className={styles.courseCode}>{course.code}</span>
+                    </div>
+                    <p className={styles.instructor}>Instructor: {course.instructor}</p>
+                  </div>
+
+                  {/* Assignments List */}
+                  <div className={styles.assignmentsList}>
+                    <h4>Recent Assignments:</h4>
+                    {course.assignments.map((assignment, idx) => (
+                      <div key={idx} className={`${styles.assignmentItem} ${styles[assignment.status]}`}>
+                        <span>{assignment.title}</span>
+                        <small>Due: {assignment.dueDate}</small>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Enter Course Link */}
+                  <div className={styles.enterCourse}>Enter Course →</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Home Page Footer */}
+          <div className={styles.homeFooter}>
+            <span>Sage Green Learning System © 2025</span>
+          </div>
+        </div>
+
+        {/* Right Sidebar */}
+        <div className={styles.sidebar}>
+          {/* To Do Section */}
+          <div className={styles.todoCard}>
+            <h3>Upcoming Tasks</h3>
+            <div className={styles.todoList}>
+              <div className={styles.todoItem}>
+                <span>CISC474 - Project Phase 1</span>
+                <small>Due: Sept 21</small>
+              </div>
+              <div className={styles.todoItem}>
+                <span>CISC498 - Resume Revisions 1</span>
+                <small>Due: Sept 22</small>
+              </div>
+              <div className={styles.todoItem}>
+                <span>CISC474 - Lab Assignment 3</span>
+                <small>Due: Sept 25</small>
+              </div>
+              <div className={styles.todoItem}>
+                <span>CISC498 - Sprint Report</span>
+                <small>Due: Sept 27</small>
+              </div>
+            </div>
+            <div className={styles.todoFooter}>
+              <Link href="/assignment" className={styles.viewAllLink}>View All Assignments</Link>
+            </div>
+          </div>
+
+          {/* Recent Announcements */}
+          <div className={styles.announcementCard}>
+            <h3>Recent Announcements</h3>
+            <div className={styles.announcementList}>
+              <div className={styles.announcementItem}>
+                <h4>CISC474</h4>
+                <p>Welcome to the first week of advanced web development!</p>
+                <small>Today</small>
+              </div>
+              <div className={styles.announcementItem}>
+                <h4>CISC498</h4>
+                <p>Class (9/19) is cancelled due to Victoria's bad joke!</p>
+                <small>Yesterday</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

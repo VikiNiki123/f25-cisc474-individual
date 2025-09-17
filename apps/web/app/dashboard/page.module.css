@@ -1,0 +1,562 @@
+/* ==== Dashboard Container ==== */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f9f9f6;
+  margin-left: 240px; /* Account for sidebar width */
+  transition: margin-left 0.3s ease;
+}
+
+/* ==== Navigation Bar ==== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e5631;
+  color: white;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #145222;
+}
+
+.navTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.profileIcon {
+  width: 32px;
+  height: 32px;
+  background-color: #2e7047;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.profileIcon:hover {
+  background-color: #3e8057;
+}
+
+/* ==== Main Flexbox (Courses + Sidebar) ==== */
+.mainContent {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex: 1;
+  align-items: flex-start;
+}
+
+/* ==== Left Flexbox - Courses ==== */
+.coursesSection {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0; /* avoids flex overflow issues */
+}
+
+.courseGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ==== Right Flexbox - Sidebar ==== */
+.sidebarSection {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.courseCard {
+  background-color: white;
+  border: 2px solid #e0e0dc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  max-width: 500rem;
+}
+
+.courseCard:hover {
+  border-color: #2e7047;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 86, 49, 0.15);
+}
+
+/* ==== Card Image Section ==== */
+.courseImage {
+  width: 120px;
+  height: 13.5rem;
+  background-color: #2e7047;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* ==== Card Content Section ==== */
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ==== Course Header Info ==== */
+.courseInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.courseTitle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.courseTitle h3 {
+  font-size: 1.3rem;
+  color: #1e5631;
+  margin: 0;
+  font-weight: 600;
+}
+
+.courseCode {
+  background-color: #2e7047;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.instructor {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ==== Assignments Section ==== */
+.assignmentsList {
+  margin: 0;
+}
+
+.assignmentsList h4 {
+  margin: 0 0 0.75rem 0;
+  color: #1e5631;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.assignmentItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.assignmentItem:last-child {
+  margin-bottom: 0;
+}
+
+.assignmentItem.pending {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+
+.assignmentItem.upcoming {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+}
+
+.assignmentItem:hover {
+  transform: translateX(2px);
+}
+
+.assignmentItem span {
+  color: #1e5631;
+  font-weight: 500;
+}
+
+.assignmentItem small {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+/* ==== Course Announcement ==== */
+.courseAnnouncement {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background-color: #f8f9f8;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #ffd700;
+  margin-top: 1rem;
+}
+
+.announcementIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.courseAnnouncement p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* ==== Home Footer ==== */
+.homeFooter {
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #e0e0dc;
+  margin-top: 15rem;
+}
+
+/* ==== Right Sidebar ==== */
+.sidebar {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* ==== Sidebar Cards ==== */
+.todoCard,
+.quickStatsCard,
+.quickActions,
+.announcementCard {
+  background-color: white;
+  border: 2px solid #e0e0dc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.todoCard h3,
+.quickStatsCard h3,
+.quickActions h3,
+.announcementCard h3 {
+  margin: 0 0 1rem 0;
+  color: #1e5631;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ==== To Do List ==== */
+.todoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.todoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  background-color: #f8f9f8;
+  border-radius: 6px;
+  border-left: 4px solid #ffc107;
+  transition: all 0.2s ease;
+}
+
+.todoItem:hover {
+  background-color: #f0f0f0;
+  transform: translateX(2px);
+}
+
+.todoItem span {
+  color: #1e5631;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.todoItem small {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.todoFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e0e0dc;
+}
+
+.todoFooter small {
+  color: #888;
+  font-size: 0.75rem;
+}
+
+.viewAllLink {
+  color: #2e7047;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.viewAllLink:hover {
+  color: #1e5631;
+  text-decoration: underline;
+}
+
+/* ==== Quick Stats ==== */
+.statsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.statItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.9rem;
+}
+
+.statItem:last-child {
+  border-bottom: none;
+}
+
+.statItem span {
+  color: #666;
+}
+
+.statItem strong {
+  color: #1e5631;
+  font-weight: 600;
+}
+
+/* ==== Quick Actions ==== */
+.actionLink {
+  display: block;
+  color: #1e5631;
+  text-decoration: none;
+  background-color: #f8f9f8;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.actionLink:hover {
+  background-color: #2e7047;
+  color: white;
+  transform: translateX(4px);
+}
+
+.actionLink:last-child {
+  margin-bottom: 0;
+}
+
+/* ==== Announcements ==== */
+.announcementList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.announcementItem {
+  padding: 1rem;
+  background-color: #f8f9f8;
+  border-radius: 8px;
+  border-left: 4px solid #ffd700;
+  transition: all 0.2s ease;
+}
+
+.announcementItem:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.announcementItem h4 {
+  margin: 0 0 0.5rem 0;
+  color: #1e5631;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.announcementItem p {
+  margin: 0 0 0.5rem 0;
+  color: #555;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.announcementItem small {
+  color: #888;
+  font-size: 0.75rem;
+}
+
+/* ==== Responsive Design ==== */
+@media (max-width: 1024px) {
+  .dashboard {
+    margin-left: 200px;
+  }
+  
+  .sidebar {
+    width: 280px;
+  }
+  
+  .academicStats {
+    gap: 1rem;
+  }
+  
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .progressSection {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    margin-left: 0;
+  }
+  
+  .mainContent {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .sidebar {
+    width: 100%;
+  }
+  
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .navTitle {
+    font-size: 1.2rem;
+  }
+  
+  .academicStats {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .statBadge {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cardHeader {
+    padding: 1rem;
+  }
+  
+  .courseImage {
+    width: 80px;
+    height: 80px;
+    align-self: center;
+  }
+  
+  .courseTitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 0.5rem;
+  }
+  
+  .welcomeHeader,
+  .todoCard,
+  .quickStatsCard,
+  .quickActions,
+  .announcementCard {
+    padding: 1rem;
+  }
+  
+  .cardHeader,
+  .cardBody,
+  .cardFooter {
+    padding: 1rem;
+  }
+}
+
+/* ==== Enter Course Link ==== */
+.enterCourse {
+  color: #2e7047;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  margin-top: auto;
+  text-align: right;
+  padding-top: 0.5rem;
+}
+
+.courseCard:hover .enterCourse {
+  color: #1e5631;
+}
+
+/* ==== Responsive Design Updates ==== */
+@media (max-width: 768px) {
+  .courseCard {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .courseImage {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .courseCard {
+    padding: 1rem;
+  }
+  
+  .courseImage {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .courseTitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

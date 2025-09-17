@@ -1,0 +1,423 @@
+/* ==== Course Page Container ==== */
+.coursePageContainer {
+  min-height: 100vh;
+  background-color: #f9f9f6;
+  margin-left: 240px; /* Account for sidebar width */
+  transition: margin-left 0.3s ease;
+}
+
+/* ==== Course Navigation ==== */
+.courseNavbar {
+  background-color: #1e5631;
+  color: white;
+  padding: 1.5rem 2rem;
+  border-bottom: 2px solid #145222;
+}
+
+.courseNavContent {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.backLink {
+  color: #a8d4b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: white;
+}
+
+.coursePageTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+/* ==== Course Content Layout ==== */
+.courseContent {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.mainSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.courseSidebar {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* ==== Course Info Card ==== */
+.courseInfoCard {
+  background-color: white;
+  border: 2px solid #e0e0dc;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.courseHeader {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.courseImage {
+  width: 140px;
+  height: 140px;
+  background-color: #2e7047;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.courseDetails {
+  flex: 1;
+}
+
+.courseName {
+  font-size: 1.8rem;
+  color: #1e5631;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.courseCode {
+  background-color: #2e7047;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.instructor {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.description {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ==== Schedule Card ==== */
+.scheduleCard {
+  background-color: white;
+  border: 2px solid #e0e0dc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.scheduleCard h3 {
+  margin: 0 0 1rem 0;
+  color: #1e5631;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.scheduleList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scheduleItem {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #f8f9f8;
+  border-radius: 8px;
+  border-left: 4px solid #2e7047;
+  transition: all 0.2s ease;
+}
+
+.scheduleItem:hover {
+  background-color: #f0f0f0;
+  transform: translateX(2px);
+}
+
+.scheduleDay {
+  font-weight: 600;
+  color: #1e5631;
+  min-width: 80px;
+}
+
+.scheduleTime {
+  font-weight: 500;
+  color: #555;
+  min-width: 140px;
+}
+
+.scheduleLocation {
+  color: #666;
+}
+
+/* ==== Assignments Card ==== */
+.assignmentsCard {
+  background-color: white;
+  border: 2px solid #e0e0dc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.assignmentsCard h3 {
+  margin: 0 0 1rem 0;
+  color: #1e5631;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.assignmentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.assignmentItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.assignmentItem.pending {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+
+.assignmentItem.upcoming {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+}
+
+.assignmentItem:hover {
+  transform: translateX(2px);
+}
+
+.assignmentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.assignmentTitle {
+  font-weight: 600;
+  color: #1e5631;
+  font-size: 1rem;
+}
+
+.assignmentDue {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.statusBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.statusBadge.pending {
+  background-color: #ffc107;
+  color: #856404;
+}
+
+.statusBadge.upcoming {
+  background-color: #28a745;
+  color: white;
+}
+
+/* ==== Sidebar Cards ==== */
+.quickActionsCard,
+.courseAnnouncementsCard {
+  background-color: white;
+  border: 2px solid #e0e0dc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.quickActionsCard h3,
+.courseAnnouncementsCard h3 {
+  margin: 0 0 1rem 0;
+  color: #1e5631;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ==== Quick Actions ==== */
+.actionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.actionLink {
+  display: block;
+  color: #1e5631;
+  text-decoration: none;
+  background-color: #f8f9f8;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.actionLink:hover {
+  background-color: #2e7047;
+  color: white;
+  transform: translateX(4px);
+}
+
+/* ==== Course Announcements ==== */
+.announcementsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.announcementItem {
+  padding: 1rem;
+  background-color: #f8f9f8;
+  border-radius: 8px;
+  border-left: 4px solid #ffd700;
+  transition: all 0.2s ease;
+}
+
+.announcementItem:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.announcementItem p {
+  margin: 0 0 0.5rem 0;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.announcementItem small {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* ==== Not Found Card ==== */
+.notFoundCard {
+  background-color: white;
+  border: 2px solid #e0e0dc;
+  border-radius: 12px;
+  padding: 3rem;
+  margin: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.notFoundCard h1 {
+  color: #1e5631;
+  margin-bottom: 1rem;
+}
+
+/* ==== Responsive Design ==== */
+@media (max-width: 1024px) {
+  .coursePageContainer {
+    margin-left: 200px;
+  }
+  
+  .courseSidebar {
+    width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .coursePageContainer {
+    margin-left: 0;
+  }
+  
+  .courseContent {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .courseSidebar {
+    width: 100%;
+  }
+  
+  .courseNavbar {
+    padding: 1rem;
+  }
+  
+  .coursePageTitle {
+    font-size: 1.4rem;
+  }
+  
+  .courseHeader {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .courseImage {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+  }
+  
+  .scheduleItem {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .scheduleDay,
+  .scheduleTime {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .courseContent {
+    padding: 0.5rem;
+  }
+  
+  .courseInfoCard,
+  .scheduleCard,
+  .assignmentsCard,
+  .quickActionsCard,
+  .courseAnnouncementsCard {
+    padding: 1rem;
+  }
+  
+  .courseName {
+    font-size: 1.4rem;
+  }
+  
+  .courseNavContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
