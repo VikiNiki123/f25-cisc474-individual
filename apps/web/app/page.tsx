@@ -46,6 +46,7 @@ export default function Home() {
                         <p>No Account? 
                             <Link href="#" className={styles.signupLink}> Sign up!</Link>
                         </p>
+                        <p>What up</p>
                     </div>
                 </div>
             </main>
