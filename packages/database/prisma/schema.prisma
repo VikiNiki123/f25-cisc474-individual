@@ -1,5 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
+//Asked AI to help with formatting & comments
 
 datasource db {
   provider  = "postgresql"
@@ -12,9 +13,141 @@ generator client {
   output   = "../generated/client"
 }
 
+// --- Enums ---
+enum Role {
+  STUDENT
+  INSTRUCTOR
+  ADMIN
+}
+
+enum SubmissionStatus {
+  SUBMITTED
+  NOT_SUBMITTED
+  LATE
+  GRADED
+}
+
+enum AssignmentType {
+  FILE
+  TEXT
+  URL
+  DISCRETE_MATH // Unique Submission Type
+}
+
+// --- Models ---
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
+  id             Int             @id @default(autoincrement())
+  firstName      String
+  lastName       String
+  email          String          @unique
+  role           Role
+  profile        Profile?
+  enrollments    Enrollment[]
+  courses        Course[]        @relation("InstructorCourses")
+  submissions    Submission[]
+  announcements  Announcement[]
+
+  // Relations for grades
+  gradesReceived Grade[]         @relation("GradesReceived")
+  gradesGiven    Grade[]         @relation("GradesGiven")
+
+  createdAt      DateTime        @default(now())
+}
+
+model Profile {
+  id         Int     @id @default(autoincrement())
+  userId     Int     @unique
+  theme      String? // ex. light or dark theme
+  profilePic String?
+  bio        String?
+  user       User    @relation(fields: [userId], references: [id])
+}
+
+model Course {
+  id            Int             @id @default(autoincrement())
+  title         String
+  courseCode    String
+  description   String?
+  credits       Int
+  instructorId  Int
+  instructor    User            @relation("InstructorCourses", fields: [instructorId], references: [id])
+  enrollments   Enrollment[]
+  assignments   Assignment[]
+  announcements Announcement[]
+}
+
+model Enrollment {
+  id       Int    @id @default(autoincrement())
+  userId   Int
+  courseId Int
+  user     User   @relation(fields: [userId], references: [id])
+  course   Course @relation(fields: [courseId], references: [id])
+}
+
+model Assignment {
+  id          Int          @id @default(autoincrement())
+  title       String
+  description String
+  dueDate     DateTime
+  courseId    Int
+  course      Course       @relation(fields: [courseId], references: [id])
+  submissions Submission[]
+  grades      Grade[]
+  rubric      Rubric?
+}
+
+model Submission {
+  id                 Int         @id @default(autoincrement())
+  userId             Int
+  assignmentId       Int
+  timestamp          DateTime    @default(now())  // When submitted
+  grade              Grade?
+  feedback           String?
+  status             SubmissionStatus
+  submissionText     String?
+  submissionFile     String?
+  submissionUrl      String?
+  submissionDiscrete String?                      // Custom format (Discrete Math)
+  user               User        @relation(fields: [userId], references: [id])
+  assignment         Assignment  @relation(fields: [assignmentId], references: [id])
+}
+
+model Grade {
+  id           Int         @id @default(autoincrement())
+  score        Int
+  feedback     String?
+
+  // Submission relation (1-to-1)
+  submissionId Int         @unique
+  submission   Submission  @relation(fields: [submissionId], references: [id])
+
+  // Assignment relation (many grades → one assignment)
+  assignmentId Int
+  assignment   Assignment  @relation(fields: [assignmentId], references: [id])
+
+  // Student who received the grade
+  studentId    Int
+  student      User        @relation("GradesReceived", fields: [studentId], references: [id])
+
+  // Instructor/Admin who gave the grade
+  graderId     Int
+  grader       User        @relation("GradesGiven", fields: [graderId], references: [id])
+}
+
+model Rubric {
+  id           Int        @id @default(autoincrement())
+  assignmentId Int        @unique
+  criteria     Json       // Flexible rubric breakdown
+  assignment   Assignment @relation(fields: [assignmentId], references: [id])
+}
+
+model Announcement {
+  id        Int      @id @default(autoincrement())
+  courseId  Int?
+  userId    Int
+  title     String
+  message   String
+  createdAt DateTime @default(now())
+  course    Course?  @relation(fields: [courseId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 }
