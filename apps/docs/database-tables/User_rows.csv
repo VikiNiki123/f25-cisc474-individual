@@ -1,0 +1,11 @@
+id,firstName,lastName,email,role,createdAt
+1,Alice,Johnson,alice@udel.edu,STUDENT,2025-09-25 23:21:35.778
+2,Bob,Smith,bob@udel.edu,STUDENT,2025-09-25 23:21:35.903
+3,Charlie,Brown,charlie@udel.edu,STUDENT,2025-09-25 23:21:36.013
+4,Dana,Miller,dana@udel.edu,STUDENT,2025-09-25 23:21:36.12
+5,Evan,Davis,evan@udel.edu,STUDENT,2025-09-25 23:21:36.314
+6,Fiona,Wilson,fiona@udel.edu,INSTRUCTOR,2025-09-25 23:21:36.421
+7,George,Taylor,george@udel.edu,INSTRUCTOR,2025-09-25 23:21:36.53
+8,Hannah,Lee,hannah@udel.edu,INSTRUCTOR,2025-09-25 23:21:36.638
+9,Ian,Moore,ian@udel.edu,INSTRUCTOR,2025-09-25 23:21:36.75
+10,Admin,User,admin@udel.edu,ADMIN,2025-09-25 23:21:36.864

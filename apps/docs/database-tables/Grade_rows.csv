@@ -1,0 +1,8 @@
+id,score,feedback,submissionId,assignmentId,studentId,graderId
+1,95,Great job!,1,1,1,6
+2,88,Well styled,2,2,2,6
+3,70,Late but acceptable,3,4,3,7
+4,92,Correct queries,4,5,4,7
+5,85,Good sketches,5,7,5,8
+6,100,Perfect proof,6,10,1,9
+7,0,No submission,7,11,2,9

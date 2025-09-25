@@ -1,0 +1,8 @@
+id,userId,assignmentId,timestamp,feedback,status,submissionText,submissionFile,submissionUrl,submissionDiscrete
+1,1,1,2025-09-25 23:21:40.734,,SUBMITTED,My HTML work,,,
+2,2,2,2025-09-25 23:21:40.844,,SUBMITTED,My CSS work,,,
+3,3,4,2025-09-25 23:21:40.953,,LATE,Late ER diagram,,,
+4,4,5,2025-09-25 23:21:41.061,,SUBMITTED,SQL queries,,,
+5,5,7,2025-09-25 23:21:41.168,,SUBMITTED,Wireframes PDF,,,
+6,1,10,2025-09-25 23:21:41.276,,SUBMITTED,,,,"∀x∃y P(x,y)"
+7,2,11,2025-09-25 23:21:41.392,,NOT_SUBMITTED,,,,

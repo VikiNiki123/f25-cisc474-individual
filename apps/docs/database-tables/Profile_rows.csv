@@ -1,0 +1,11 @@
+id,userId,theme,profilePic,bio
+1,1,light,alice.png,"Hi, I'm Alice!"
+2,2,dark,bob.png,Bob loves coding.
+3,3,light,charlie.png,Charlie here.
+4,4,dark,dana.png,Dana the student.
+5,5,light,evan.png,Evan in CS.
+6,6,light,fiona.png,Instructor Fiona.
+7,7,dark,george.png,Instructor George.
+8,8,light,hannah.png,Instructor Hannah.
+9,9,dark,ian.png,Instructor Ian.
+10,10,light,admin.png,Admin user.

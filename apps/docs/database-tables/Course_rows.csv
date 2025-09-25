@@ -1,0 +1,5 @@
+id,title,courseCode,description,credits,instructorId
+1,Web Development,CISC474,,3,6
+2,Database Systems,CISC437,,3,7
+3,Human-Computer Interaction,CISC481,,3,8
+4,Discrete Mathematics,CISC210,,4,9
