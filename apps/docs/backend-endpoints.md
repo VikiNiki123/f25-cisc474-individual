@@ -1,27 +1,27 @@
 # NestJS Backend Enpoints
 
 ## Endpoints
-*Users*
+### *Users*
 - [All Data]()
 - [Specific Data]()
-*Profiles*
+### *Profiles*
 - [All Data]()
 - [Specific Data]()
-*Courses*
+### *Courses*
 - [All Data]()
 - [Specific Data]()
-*Enrollments*
+### *Enrollments*
 - [All Data]()
 - [Specific Data]()
-*Assignments*
+### *Assignments*
 - [All Data]()
 - [Specific Data]()
-*Submissions*
+### *Submissions*
 - [All Data]()
 - [Specific Data]()
-*Grades*
+### *Grades*
 - [All Data]()
 - [Specific Data]()
-*Annoucements*
+### *Annoucements*
 - [All Data]()
 - [Specific Data]()
