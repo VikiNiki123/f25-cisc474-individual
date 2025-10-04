@@ -11,7 +11,7 @@ export class AssignmentsController {
     return this.assignmentsService.findAllAssignments({});
   }
 
-  @Get('assignment/:id')
+  @Get('assignments/:id')
   async getAssignmentById(@Param('id') id: string): Promise<AssignmentModel> {
     return this.assignmentsService.findAssignmentByIdOrThrow(Number(id));
   }

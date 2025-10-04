@@ -11,7 +11,7 @@ export class EnrollmentController {
     return this.enrollmentService.findAllEnrollment({});
   }
 
-  @Get('enrollment/:id')
+  @Get('enrollments/:id')
   async getEnrollmentById(@Param('id') id: string): Promise<EnrollmentModel> {
     return this.enrollmentService.findEnrollmentByIdOrThrow(Number(id));
   }

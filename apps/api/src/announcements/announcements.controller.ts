@@ -11,7 +11,7 @@ export class AnnouncementsController {
     return this.announcementsService.findAllAnnouncements({});
   }
 
-  @Get('announcement/:id')
+  @Get('announcements/:id')
   async getAnnouncementById(@Param('id') id: string): Promise<AnnouncementModel> {
     return this.announcementsService.findAnnouncementByIdOrThrow(Number(id));
   }

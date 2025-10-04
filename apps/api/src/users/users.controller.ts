@@ -1,26 +1,18 @@
-import {
-  Controller,
-  Get,
-  Param,
-  Post,
-  Body,
-  Put,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User as UserModel } from '@repo/database';
 
 @Controller()
 export class UsersController {
-  constructor(private readonly userService: UsersService) {}
+  constructor(private readonly usersService: UsersService) {}
 
   @Get('users')
   async getUsers(): Promise<UserModel[]> {
-    return this.userService.findAllUsers({});
+    return this.usersService.findAllUsers({});
   }
 
-  @Get('user/:id')
+  @Get('users/:id')
   async getUserById(@Param('id') id: string): Promise<UserModel> {
-    return this.userService.findUserByIdOrThrow(Number(id));
+    return this.usersService.findUserByIdOrThrow(Number(id));
   }
 }

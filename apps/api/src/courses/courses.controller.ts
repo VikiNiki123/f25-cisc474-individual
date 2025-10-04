@@ -11,7 +11,7 @@ export class CoursesController {
     return this.coursesService.findAllCourses({});
   }
 
-  @Get('course/:id')
+  @Get('courses/:id')
   async getCourseById(@Param('id') id: string): Promise<CourseModel> {
     return this.coursesService.findCourseByIdOrThrow(Number(id));
   }

@@ -11,7 +11,7 @@ export class GradesController {
     return this.gradesService.findAllGrades({});
   }
 
-  @Get('grade/:id')
+  @Get('grades/:id')
   async getGradeById(@Param('id') id: string): Promise<GradeModel> {
     return this.gradesService.findGradeByIdOrThrow(Number(id));
   }

@@ -11,7 +11,7 @@ export class SubmissionsController {
     return this.submissionsService.findAllSubmissions({});
   }
 
-  @Get('submission/:id')
+  @Get('submissions/:id')
   async getSubmissionById(@Param('id') id: string): Promise<SubmissionModel> {
     return this.submissionsService.findSubmissionByIdOrThrow(Number(id));
   }
