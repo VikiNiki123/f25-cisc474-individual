@@ -9,6 +9,7 @@ import { AssignmentsModule } from './assignments/assignments.module';
 import { SubmissionsModule } from './submissions/submissions.module';
 import { GradesModule } from './grades/grades.module';
 import { AnnouncementsModule } from './announcements/announcements.module';
+import { ProfileModule } from './profiles/profiles.module';
 
 
 @Module({
@@ -19,6 +20,7 @@ import { AnnouncementsModule } from './announcements/announcements.module';
     AssignmentsModule,
     SubmissionsModule,
     GradesModule,
+    ProfileModule,
     AnnouncementsModule,
   ],
 })
