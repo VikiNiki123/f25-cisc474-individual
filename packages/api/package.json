@@ -4,11 +4,13 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "npm run build -- --watch",
-    "build": "tsc -b -v",
+    "types": "tsc -p tsconfig.types.json",
+    "dev": "tsup src/* --format cjs,esm --watch --onSuccess \"npm run types\"",
+    "build": "tsup src/* --format cjs,esm && npm run types",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\""
   },
   "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "./dist/**"
@@ -25,16 +27,19 @@
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.js"
     },
     "./*": {
+      "types": "./dist/*.d.ts",
       "import": "./dist/*.js",
       "require": "./dist/*.js"
     }
   },
   "dependencies": {
-    "@nestjs/mapped-types": "*"
+    "@nestjs/mapped-types": "*",
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
