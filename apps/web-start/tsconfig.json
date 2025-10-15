@@ -6,6 +6,6 @@
     "eslint.config.js",
     "prettier.config.js",
     "vite.config.js"
-  ],
+, "src/routes/$assignmentId.tsx"  ],
   "exclude": ["node_modules"]
 }

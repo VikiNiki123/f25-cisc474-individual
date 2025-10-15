@@ -1,8 +1,11 @@
-"use client";
-import Link from "next/link";
-import styles from "./page.module.css";
+import { createFileRoute, Link } from "@tanstack/react-router"
+import styles from "../styles/dashboard.module.css"
 
-// Course data matching your actual courses
+export const Route = createFileRoute("/dashboard")({
+  component: DashboardPage,
+})
+
+// Course Data
 const courses = [
   { 
     title: "Advanced Web Technologies", 
@@ -26,9 +29,9 @@ const courses = [
     ],
     announcement: "Class (9/19) is cancelled due to Victoria's bad joke!",
   }
-];
+]
 
-export default function Dashboard() {
+function DashboardPage() {
   return (
     <div className={styles.dashboard}>
       {/* Navigation Header */}
@@ -36,7 +39,7 @@ export default function Dashboard() {
         <h1 className={styles.navTitle}>Student Dashboard ༄˖°.🍃.ೃ࿔*:･</h1>
         <div className={styles.navActions}>
           <span>Welcome back, Victoria</span>
-          <Link href="./profile">
+          <Link to="/profile">
             <div className={styles.profileIcon}></div>
           </Link>
         </div>
@@ -45,16 +48,17 @@ export default function Dashboard() {
       <div className={styles.mainContent}>
         {/* Left Content - Course Cards */}
         <div className={styles.coursesSection}>
-          {/* Course Display - Updated to match wireframe */}
           <div className={styles.courseGrid}>
             {courses.map((course) => (
-              <Link key={course.slug} href={`/course/${course.slug}`} className={styles.courseCard}>
-                {/* Course Image */}
+              <Link
+                key={course.slug}
+                to={`/$courseId`}
+                params={{ courseId: course.slug }}
+                className={styles.courseCard}
+              >
                 <div className={styles.courseImage}></div>
                 
-                {/* Course Content */}
                 <div className={styles.cardContent}>
-                  {/* Course Info */}
                   <div className={styles.courseInfo}>
                     <div className={styles.courseTitle}>
                       <h3>{course.title}</h3>
@@ -67,21 +71,22 @@ export default function Dashboard() {
                   <div className={styles.assignmentsList}>
                     <h4>Recent Assignments:</h4>
                     {course.assignments.map((assignment, idx) => (
-                      <div key={idx} className={`${styles.assignmentItem} ${styles[assignment.status]}`}>
+                      <div
+                        key={idx}
+                        className={`${styles.assignmentItem} ${styles[assignment.status]}`}
+                      >
                         <span>{assignment.title}</span>
                         <small>Due: {assignment.dueDate}</small>
                       </div>
                     ))}
                   </div>
 
-                  {/* Enter Course Link */}
                   <div className={styles.enterCourse}>Enter Course →</div>
                 </div>
               </Link>
             ))}
           </div>
 
-          {/* Home Page Footer */}
           <div className={styles.homeFooter}>
             <span>Sage Green Learning System © 2025</span>
           </div>
@@ -111,7 +116,9 @@ export default function Dashboard() {
               </div>
             </div>
             <div className={styles.todoFooter}>
-              <Link href="/assignment" className={styles.viewAllLink}>View All Assignments</Link>
+              <Link to="/assignments" className={styles.viewAllLink}>
+                View All Assignments
+              </Link>
             </div>
           </div>
 
@@ -134,5 +141,5 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,26 +1,26 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import styles from "./navbar.module.css";
+import { Link, useRouterState } from "@tanstack/react-router"
+import { useState } from "react"
+import styles from "../styles/navbar.module.css"
 
 interface NavLink {
-  href: string;
-  label: string;
+  href: string
+  label: string
 }
 
 export default function Navbar() {
-  const pathname = usePathname();
-  const [collapsed, setCollapsed] = useState(false); /*setCollapsed was orginally part of the navbar but removed currently, may add it back later*/
+  const [collapsed, setCollapsed] = useState(false) // Keep it for future use
+
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  })
 
   const links: NavLink[] = [
     { href: "/dashboard", label: "Home" },
-    { href: "/course", label: "Courses" },
+    { href: "/courses", label: "Courses" },
     { href: "/assignment", label: "Assignments" },
     { href: "/profile", label: "Profile" },
     { href: "/", label: "Log In/Out" },
-  ];
+  ]
 
   return (
     <nav className={`${styles.sidebar} ${collapsed ? styles.collapsed : ""}`}>
@@ -35,7 +35,7 @@ export default function Navbar() {
         {links.map((link) => (
           <li key={link.href}>
             <Link
-              href={link.href}
+              to={link.href}
               className={`${styles.link} ${
                 pathname === link.href ? styles.active : ""
               }`}
@@ -46,5 +46,5 @@ export default function Navbar() {
         ))}
       </ul>
     </nav>
-  );
+  )
 }

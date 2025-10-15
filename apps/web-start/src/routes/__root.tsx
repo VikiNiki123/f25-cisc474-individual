@@ -11,6 +11,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools';
 import TanStackQueryDevtools from '../integrations/devtools';
 import appCss from '../styles.css?url';
 import type { QueryClient } from '@tanstack/react-query';
+import Navbar from '../components/navbar';
 
 export interface MyRouterContext {
   queryClient: QueryClient;
@@ -48,6 +49,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <Navbar />
         {children}
         <TanStackDevtools
           config={{

@@ -1,9 +1,11 @@
-"use client";
-import styles from "./page.module.css";
-import Link from "next/link";
+import { createFileRoute, Link } from '@tanstack/react-router';
+import styles from "../styles/loginIn.module.css";
 
-{/*Login In Page */}
-export default function Home() {
+export const Route = createFileRoute('/loginIn')({
+  component: LoginIn,
+});
+
+function LoginIn() {
     return (
         <div className={styles.page}>
             <main className={styles.main}>
@@ -37,14 +39,14 @@ export default function Home() {
                             />
                         </div>
 
-                        <Link href="./dashboard" className={styles.loginButton}>
+                        <Link to="/dashboard" className={styles.loginButton}>
                             Log In
                         </Link>
                     </form>
 
                     <div className={styles.loginFooter}>
                         <p>No Account? 
-                            <Link href="#" className={styles.signupLink}> Sign up!</Link>
+                            <p className={styles.signupLink}> Sign up! </p>
                         </p>
                     </div>
                 </div>

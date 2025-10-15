@@ -1,6 +1,10 @@
-"use client";
-import styles from "./page.module.css";
-import Link from "next/link";
+import { createFileRoute, Link } from "@tanstack/react-router"
+import styles from "../styles/courses.module.css"
+
+// Define the route
+export const Route = createFileRoute("/courses")({
+  component: CoursesTab,
+})
 
 interface Course {
   id: number;
@@ -14,7 +18,7 @@ interface Course {
   upcomingAssignments: number;
 }
 
-{/*Example Course Data */}
+// 🌿 Example Course Data
 const courses: Course[] = [
   {
     id: 1,
@@ -25,7 +29,7 @@ const courses: Course[] = [
     link: "/course-page",
     instructor: "Dr. Johnson",
     credits: 3,
-    upcomingAssignments: 2
+    upcomingAssignments: 2,
   },
   {
     id: 2,
@@ -36,7 +40,7 @@ const courses: Course[] = [
     link: "/course-page",
     instructor: "Prof. John",
     credits: 4,
-    upcomingAssignments: 2
+    upcomingAssignments: 2,
   },
 ];
 
@@ -61,16 +65,20 @@ export default function CoursesTab() {
                 <strong>{courses.length}</strong> Active Courses
               </span>
               <span className={styles.statItem}>
-                <strong>{courses.reduce((sum, course) => sum + course.credits, 0)}</strong> Total Credits
+                <strong>
+                  {courses.reduce((sum, course) => sum + course.credits, 0)}
+                </strong>{" "}
+                Total Credits
               </span>
             </div>
           </div>
 
           <div className={styles.courseGrid}>
             {courses.map((course) => (
-              <Link 
-                key={course.id} 
-                href={`/course/${course.code.toLowerCase()}`} 
+              <Link
+                key={course.id}
+                to={`/$courseId`}
+                params={{ courseId: course.code.toLowerCase() }}
                 className={styles.courseCard}
               >
                 <div className={styles.cardHeader}>
@@ -100,20 +108,20 @@ export default function CoursesTab() {
                     <div className={styles.assignmentAlert}>
                       <span className={styles.alertIcon}>⚠︎</span>
                       <span>
-                        {course.upcomingAssignments} assignment{course.upcomingAssignments > 1 ? 's' : ''} due soon
+                        {course.upcomingAssignments} assignment
+                        {course.upcomingAssignments > 1 ? "s" : ""} due soon
                       </span>
                     </div>
                   )}
                 </div>
 
                 <div className={styles.cardFooter}>
-                  <span className={styles.enterCourse}>
-                    Enter Course →
-                  </span>
+                  <span className={styles.enterCourse}>Enter Course →</span>
                 </div>
               </Link>
             ))}
           </div>
+
           <div className={styles.footer}>
             <span>Sage Green Learning System © 2025</span>
           </div>

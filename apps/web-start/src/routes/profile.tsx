@@ -1,8 +1,13 @@
 "use client";
-import styles from "./page.module.css";
-import Link from "next/link";
+import { createFileRoute } from '@tanstack/react-router';
+import styles from "../styles/profile.module.css";
 
-{/*Profile Page */}
+
+export const Route = createFileRoute('/profile')({
+  component: Profile,
+});
+
+{/*Profile Page*/}
 export default function Profile() {
   return (
     <div className={styles.dashboard}>

@@ -1,8 +1,11 @@
-"use client";
-import Link from "next/link";
-import styles from "./page.module.css";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import styles from "../styles/assignments.module.css";
 
-// Sample Assignment Data - via help with ChatGPT
+export const Route = createFileRoute("/assignments")({
+  component: AssignmentsPage,
+})
+
+// Sample Assignment Data
 const assignments = [
   {
     id: 1,
@@ -13,16 +16,17 @@ const assignments = [
     dueTime: "11:59 PM",
     status: "pending",
     points: 100,
-    description: "Create a wireframe and initial project proposal for your web application. Include user stories, technology stack decisions, and project timeline.",
+    description:
+      "Create a wireframe and initial project proposal for your web application. Include user stories, technology stack decisions, and project timeline.",
     requirements: [
       "Detailed wireframe mockups",
       "Project proposal document (2-3 pages)",
       "Technology stack justification",
-      "Timeline with milestones"
+      "Timeline with milestones",
     ],
     submissionType: "File Upload",
     attempts: "Unlimited",
-    submitted: false
+    submitted: false,
   },
   {
     id: 2,
@@ -33,20 +37,21 @@ const assignments = [
     dueTime: "11:59 PM",
     status: "pending",
     points: 50,
-    description: "Submit your revised resume incorporating feedback from the career services workshop. Focus on technical skills, project experience, and professional formatting.",
+    description:
+      "Submit your revised resume incorporating feedback from the career services workshop. Focus on technical skills, project experience, and professional formatting.",
     requirements: [
       "Updated resume in PDF format",
       "Cover letter template",
       "LinkedIn profile screenshot",
-      "Reflection essay (1 page)"
+      "Reflection essay (1 page)",
     ],
     submissionType: "File Upload",
     attempts: "3 attempts allowed",
-    submitted: false
-  }
+    submitted: false,
+  },
 ];
 
-export default function assignment() {
+function AssignmentsPage() {
   return (
     <div className={styles.assignmentsContainer}>
       {/* Header */}
@@ -59,7 +64,10 @@ export default function assignment() {
       {/* Assignments Grid */}
       <div className={styles.assignmentsGrid}>
         {assignments.map((assignment) => (
-          <div key={assignment.id} className={`${styles.assignmentCard} ${styles[assignment.status]}`}>
+          <div
+            key={assignment.id}
+            className={`${styles.assignmentCard} ${styles[assignment.status]}`}
+          >
             {/* Assignment Header */}
             <div className={styles.assignmentHeader}>
               <div className={styles.assignmentTitleSection}>
@@ -70,8 +78,10 @@ export default function assignment() {
                 </div>
               </div>
               <div className={styles.assignmentMeta}>
-                <div className={`${styles.statusBadge} ${styles[assignment.status]}`}>
-                  {assignment.status === 'pending' ? 'Due Soon' : 'Upcoming'}
+                <div
+                  className={`${styles.statusBadge} ${styles[assignment.status]}`}
+                >
+                  {assignment.status === "pending" ? "Due Soon" : "Upcoming"}
                 </div>
                 <div className={styles.pointsValue}>{assignment.points} pts</div>
               </div>
@@ -86,12 +96,12 @@ export default function assignment() {
               </div>
             </div>
 
-            {/* Assignment Description */}
+            {/* Description */}
             <div className={styles.assignmentDescription}>
               <p>{assignment.description}</p>
             </div>
 
-            {/* Requirements List */}
+            {/* Requirements */}
             <div className={styles.requirementsSection}>
               <h4>Requirements:</h4>
               <ul className={styles.requirementsList}>
@@ -104,33 +114,40 @@ export default function assignment() {
               </ul>
             </div>
 
-            {/* Assignment Details */}
+            {/* Details */}
             <div className={styles.assignmentDetails}>
               <div className={styles.detailItem}>
                 <span className={styles.detailLabel}>Submission:</span>
-                <span className={styles.detailValue}>{assignment.submissionType}</span>
+                <span className={styles.detailValue}>
+                  {assignment.submissionType}
+                </span>
               </div>
               <div className={styles.detailItem}>
                 <span className={styles.detailLabel}>Attempts:</span>
                 <span className={styles.detailValue}>{assignment.attempts}</span>
               </div>
               <div className={styles.detailItem}>
-                <span className={styles.detailLabel}>Status:</span>
-                <span className={`${styles.detailValue} ${styles.statusText} ${styles[assignment.status]}`}>
-                  {assignment.submitted ? 'Submitted' : 'Not Submitted'}
+                <span
+                  className={`${styles.detailValue} ${styles.statusText} ${styles[assignment.status]}`}
+                >
+                  {assignment.submitted ? "Submitted" : "Not Submitted"}
                 </span>
               </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* Actions */}
             <div className={styles.assignmentActions}>
-              <Link 
-                href={`/assignment/${assignment.id}`} 
+              <Link
+                to={'/$assignmentId'}
+                params={{ assignmentId: assignment.id.toString() }}
                 className={`${styles.actionButton} ${styles.primaryButton}`}
               >
-                {assignment.submitted ? 'View Submission' : 'Start Assignment'}
+                {assignment.submitted ? "View Submission" : "Start Assignment"}
               </Link>
-              <button className={`${styles.actionButton} ${styles.secondaryButton}`}>
+              <button
+                className={`${styles.actionButton} ${styles.secondaryButton}`}
+                onClick={() => alert(`Details for ${assignment.title}`)}
+              >
                 View Details
               </button>
             </div>
@@ -138,7 +155,7 @@ export default function assignment() {
         ))}
       </div>
 
-      {/*Footer */}
+      {/* Footer */}
       <div className={styles.footer}>
         <span>Sage Green Learning System © 2025</span>
       </div>
