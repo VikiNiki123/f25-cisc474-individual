@@ -14,16 +14,16 @@ import type {
   try {
     // --- USERS ---
     const DEFAULT_USERS: Array<Partial<User>> = [
-      { firstName: "Alice", lastName: "Johnson", email: "alice@udel.edu", role: "STUDENT" },
-      { firstName: "Bob", lastName: "Smith", email: "bob@udel.edu", role: "STUDENT" },
-      { firstName: "Charlie", lastName: "Brown", email: "charlie@udel.edu", role: "STUDENT" },
-      { firstName: "Dana", lastName: "Miller", email: "dana@udel.edu", role: "STUDENT" },
-      { firstName: "Evan", lastName: "Davis", email: "evan@udel.edu", role: "STUDENT" },
-      { firstName: "Fiona", lastName: "Wilson", email: "fiona@udel.edu", role: "INSTRUCTOR" },
-      { firstName: "George", lastName: "Taylor", email: "george@udel.edu", role: "INSTRUCTOR" },
-      { firstName: "Hannah", lastName: "Lee", email: "hannah@udel.edu", role: "INSTRUCTOR" },
-      { firstName: "Ian", lastName: "Moore", email: "ian@udel.edu", role: "INSTRUCTOR" },
-      { firstName: "Admin", lastName: "User", email: "admin@udel.edu", role: "ADMIN" },
+      { id: 1, firstName: "Alice", lastName: "Johnson", email: "alice@udel.edu", role: "STUDENT" },
+      { id: 1, firstName: "Bob", lastName: "Smith", email: "bob@udel.edu", role: "STUDENT" },
+      { id: 1, firstName: "Charlie", lastName: "Brown", email: "charlie@udel.edu", role: "STUDENT" },
+      { id: 1, firstName: "Dana", lastName: "Miller", email: "dana@udel.edu", role: "STUDENT" },
+      { id: 1, firstName: "Evan", lastName: "Davis", email: "evan@udel.edu", role: "STUDENT" },
+      { id: 1, firstName: "Fiona", lastName: "Wilson", email: "fiona@udel.edu", role: "INSTRUCTOR" },
+      { id: 1, firstName: "George", lastName: "Taylor", email: "george@udel.edu", role: "INSTRUCTOR" },
+      { id: 1, firstName: "Hannah", lastName: "Lee", email: "hannah@udel.edu", role: "INSTRUCTOR" },
+      { id: 1, firstName: "Ian", lastName: "Moore", email: "ian@udel.edu", role: "INSTRUCTOR" },
+      { id: 1, firstName: "Admin", lastName: "User", email: "admin@udel.edu", role: "ADMIN" },
     ];
 
     for (const user of DEFAULT_USERS) {
@@ -58,10 +58,10 @@ import type {
 
     // --- COURSES ---
     const DEFAULT_COURSES: Array<Partial<Course>> = [
-      { title: "Web Development", courseCode: "CISC474", credits: 3, instructorId: 6 },
-      { title: "Database Systems", courseCode: "CISC437", credits: 3, instructorId: 7 },
-      { title: "Human-Computer Interaction", courseCode: "CISC481", credits: 3, instructorId: 8 },
-      { title: "Discrete Mathematics", courseCode: "CISC210", credits: 4, instructorId: 9 },
+      { id: 1, title: "Web Development", courseCode: "CISC474", credits: 3, instructorId: 6,  description: "Learn to build modern web applications." },
+      { id: 2,title: "Database Systems", courseCode: "CISC437", credits: 3, instructorId: 7, description: "Introduction to database design and SQL." },
+      { id: 3,title: "Human-Computer Interaction", courseCode: "CISC481", credits: 3, instructorId: 8 , description: "Study of user interface design and usability."},
+      { id: 4,title: "Discrete Mathematics", courseCode: "CISC210", credits: 4, instructorId: 9 , description: "Mathematical foundations for computer science."},
     ];
 
     for (const course of DEFAULT_COURSES) {
@@ -91,18 +91,18 @@ import type {
 
     // --- ASSIGNMENTS ---
     const DEFAULT_ASSIGNMENTS: Array<Partial<Assignment>> = [
-      { title: "HTML Basics", description: "Build a simple webpage", dueDate: new Date("2025-10-10"), courseId: 1 },
-      { title: "CSS Styling", description: "Style your webpage", dueDate: new Date("2025-10-15"), courseId: 1 },
-      { title: "JavaScript DOM", description: "Manipulate DOM elements", dueDate: new Date("2025-10-20"), courseId: 1 },
-      { title: "ER Diagram", description: "Design ER Diagram", dueDate: new Date("2025-10-12"), courseId: 2 },
-      { title: "SQL Queries", description: "Write basic SQL queries", dueDate: new Date("2025-10-18"), courseId: 2 },
-      { title: "Normalization", description: "Normalize a schema", dueDate: new Date("2025-10-22"), courseId: 2 },
-      { title: "UI Mockups", description: "Create wireframes", dueDate: new Date("2025-10-14"), courseId: 3 },
-      { title: "Usability Testing", description: "Test with peers", dueDate: new Date("2025-10-19"), courseId: 3 },
-      { title: "Accessibility Report", description: "Audit accessibility", dueDate: new Date("2025-10-25"), courseId: 3 },
-      { title: "Logic Proofs", description: "Prove logical statements", dueDate: new Date("2025-10-11"), courseId: 4 },
-      { title: "Set Theory", description: "Work with sets", dueDate: new Date("2025-10-16"), courseId: 4 },
-      { title: "Graph Theory", description: "Graph problems", dueDate: new Date("2025-10-23"), courseId: 4 },
+      { id: 1, title: "HTML Basics", description: "Build a simple webpage", dueDate: new Date("2025-10-10"), courseId: 1 },
+      { id: 2,title: "CSS Styling", description: "Style your webpage", dueDate: new Date("2025-10-15"), courseId: 1 },
+      { id: 3,title: "JavaScript DOM", description: "Manipulate DOM elements", dueDate: new Date("2025-10-20"), courseId: 1 },
+      { id: 4,title: "ER Diagram", description: "Design ER Diagram", dueDate: new Date("2025-10-12"), courseId: 2 },
+      { id: 5,title: "SQL Queries", description: "Write basic SQL queries", dueDate: new Date("2025-10-18"), courseId: 2 },
+      { id: 6,title: "Normalization", description: "Normalize a schema", dueDate: new Date("2025-10-22"), courseId: 2 },
+      { id: 7,title: "UI Mockups", description: "Create wireframes", dueDate: new Date("2025-10-14"), courseId: 3 },
+      { id: 8,title: "Usability Testing", description: "Test with peers", dueDate: new Date("2025-10-19"), courseId: 3 },
+      { id: 9,title: "Accessibility Report", description: "Audit accessibility", dueDate: new Date("2025-10-25"), courseId: 3 },
+      { id: 10,title: "Logic Proofs", description: "Prove logical statements", dueDate: new Date("2025-10-11"), courseId: 4 },
+      { id: 11,title: "Set Theory", description: "Work with sets", dueDate: new Date("2025-10-16"), courseId: 4 },
+      { id: 12,title: "Graph Theory", description: "Graph problems", dueDate: new Date("2025-10-23"), courseId: 4 },
     ];
 
     await prisma.assignment.createMany({
