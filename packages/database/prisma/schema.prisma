@@ -43,7 +43,6 @@ model User {
   role           Role
   profile        Profile?
   enrollments    Enrollment[]
-  courses        Course[]        @relation("InstructorCourses")
   submissions    Submission[]
   announcements  Announcement[]
 
@@ -69,8 +68,6 @@ model Course {
   courseCode    String          @unique
   description   String?
   credits       Int
-  instructorId  Int?
-  instructor    User?            @relation("InstructorCourses", fields: [instructorId], references: [id])
   enrollments   Enrollment[]
   assignments   Assignment[]
   announcements Announcement[]

@@ -58,10 +58,10 @@ import type {
 
     // --- COURSES ---
     const DEFAULT_COURSES: Array<Partial<Course>> = [
-      { id: 1, title: "Web Development", courseCode: "CISC474", credits: 3, instructorId: 6,  description: "Learn to build modern web applications." },
-      { id: 2,title: "Database Systems", courseCode: "CISC437", credits: 3, instructorId: 7, description: "Introduction to database design and SQL." },
-      { id: 3,title: "Human-Computer Interaction", courseCode: "CISC481", credits: 3, instructorId: 8 , description: "Study of user interface design and usability."},
-      { id: 4,title: "Discrete Mathematics", courseCode: "CISC210", credits: 4, instructorId: 9 , description: "Mathematical foundations for computer science."},
+      { id: 1, title: "Web Development", courseCode: "CISC474", credits: 3, description: "Learn to build modern web applications." },
+      { id: 2,title: "Database Systems", courseCode: "CISC437", credits: 3, description: "Introduction to database design and SQL." },
+      { id: 3,title: "Human-Computer Interaction", courseCode: "CISC481", credits: 3, description: "Study of user interface design and usability."},
+      { id: 4,title: "Discrete Mathematics", courseCode: "CISC210", credits: 4, description: "Mathematical foundations for computer science."},
     ];
 
     for (const course of DEFAULT_COURSES) {

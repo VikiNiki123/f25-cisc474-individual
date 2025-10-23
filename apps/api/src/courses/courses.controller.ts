@@ -26,13 +26,13 @@ export class CoursesController {
   }
 
   // PUT update course
-  @Put('courses/:id')
+  @Put('courses')
   async editCourse(@Param('id') id: string, @Body() editCourseDto: CourseUpdate): Promise<CourseOut> {
     return this.coursesService.updateCourse(editCourseDto);
   }
-  
+
   // DELETE course
-  @Delete('courses/:id')
+  @Delete('courses')
   async removeCourse(@Param('id') id: string, @Body() deleteCourseDto: CourseDelete): Promise<CourseOut> {
     return this.coursesService.deleteCourse(deleteCourseDto);
   }
