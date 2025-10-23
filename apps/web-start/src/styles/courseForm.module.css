@@ -1,0 +1,222 @@
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: "Poppins", sans-serif;
+  color: #0f411e;
+  overflow-x: hidden;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 20px rgba(15, 65, 30, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 8px 25px rgba(15, 65, 30, 0.2);
+  transform: translateY(-2px);
+}
+
+.navTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0f411e;
+  text-shadow: 0 0 8px rgba(15, 65, 30, 0.2);
+}
+
+/* ---------- Main Content ---------- */
+.mainContent {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  border-radius: 25px;
+  box-shadow: 0 4px 30px rgba(15, 65, 30, 0.1);
+  padding: 2rem;
+  animation: slideUp 0.7s ease-out;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeader h2 {
+  font-size: 1.6rem;
+  color: #0f411e;
+}
+
+/* ---------- Tabs ---------- */
+.actionTabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.actionTabs button {
+  padding: 0.6rem 1.5rem;
+  border: 2px solid #0f411e;
+  border-radius: 25px;
+  background: transparent;
+  font-weight: 500;
+  color: #0f411e;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.actionTabs button:hover {
+  background: #0f411e;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.active {
+  background: #0f411e;
+  color: #fff;
+  border-color: #0f411e;
+  box-shadow: 0 0 10px rgba(15, 65, 30, 0.4);
+}
+
+/* ---------- Forms ---------- */
+.formContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form input,
+.form textarea,
+.form select {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+  outline: none;
+  border-color: #0f411e;
+  box-shadow: 0 0 8px rgba(15, 65, 30, 0.3);
+}
+
+/* ---------- Buttons ---------- */
+.submitButton,
+.deleteButton {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #0f411e, #4cae50);
+  color: white;
+}
+
+.submitButton:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(15, 65, 30, 0.3);
+}
+
+.deleteButton {
+  background: linear-gradient(135deg, #b71c1c, #e53935);
+  color: white;
+}
+
+.deleteButton:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(183, 28, 28, 0.3);
+}
+
+/* ---------- Messages ---------- */
+.errorMessage {
+  color: #b71c1c;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.successMessage {
+  color: #1b5e20;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .mainContent {
+    padding: 1.5rem;
+  }
+
+  .actionTabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .actionTabs button {
+    width: 80%;
+  }
+}

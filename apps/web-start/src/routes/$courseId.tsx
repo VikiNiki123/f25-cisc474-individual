@@ -1,9 +1,9 @@
 import { createFileRoute, useParams, Link } from "@tanstack/react-router"
 import styles from "../styles/course.module.css"
-import { Course } from "./courses"
 import { backendFetcher } from "../integrations/fetcher"
 import { useQuery } from "@tanstack/react-query"
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
+import type { CourseOut } from "@repo/api/courses"
 
 export const Route = createFileRoute("/$courseId")({
   component: CoursePage,
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/$courseId")({
 const coursesQueryOptions = (courseId: string) =>
   queryOptions({
     queryKey: ['courses', courseId],
-    queryFn: backendFetcher<Course>(`/courses/${courseId}`),
+    queryFn: backendFetcher<CourseOut>(`/courses/${courseId}`),
   });
 
 
@@ -90,7 +90,7 @@ function CoursePage() {
                         {assignment.status === "pending" ? "Due" : "Upcoming"}
                       </div>
                     </div>
-                  ))}*/}
+                  ))}
                   <p>Assignments will be listed here and link to the assignments page</p>
                 {/*</div>*/}
                 </div>

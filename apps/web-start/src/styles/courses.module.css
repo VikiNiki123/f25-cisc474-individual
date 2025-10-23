@@ -248,6 +248,24 @@
   flex-shrink: 0;
 }
 
+.addCourseCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px dashed #0f411e;
+  transition: 0.3s;
+}
+.addCourseCard:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.03);
+}
+.addIcon {
+  font-size: 48px;
+  color: #0f411e;
+}
+
 /* ==== Card Footer ==== */
 .cardFooter {
   padding: 1rem 1.5rem;

@@ -13,6 +13,7 @@ import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as LoginInRouteImport } from './routes/loginIn'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CoursesRouteImport } from './routes/courses'
+import { Route as CourseFormRouteImport } from './routes/courseForm'
 import { Route as AssignmentsRouteImport } from './routes/assignments'
 import { Route as CourseIdRouteImport } from './routes/$courseId'
 import { Route as AssignmentIdRouteImport } from './routes/$assignmentId'
@@ -36,6 +37,11 @@ const DashboardRoute = DashboardRouteImport.update({
 const CoursesRoute = CoursesRouteImport.update({
   id: '/courses',
   path: '/courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CourseFormRoute = CourseFormRouteImport.update({
+  id: '/courseForm',
+  path: '/courseForm',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AssignmentsRoute = AssignmentsRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/$assignmentId': typeof AssignmentIdRoute
   '/$courseId': typeof CourseIdRoute
   '/assignments': typeof AssignmentsRoute
+  '/courseForm': typeof CourseFormRoute
   '/courses': typeof CoursesRoute
   '/dashboard': typeof DashboardRoute
   '/loginIn': typeof LoginInRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/$assignmentId': typeof AssignmentIdRoute
   '/$courseId': typeof CourseIdRoute
   '/assignments': typeof AssignmentsRoute
+  '/courseForm': typeof CourseFormRoute
   '/courses': typeof CoursesRoute
   '/dashboard': typeof DashboardRoute
   '/loginIn': typeof LoginInRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/$assignmentId': typeof AssignmentIdRoute
   '/$courseId': typeof CourseIdRoute
   '/assignments': typeof AssignmentsRoute
+  '/courseForm': typeof CourseFormRoute
   '/courses': typeof CoursesRoute
   '/dashboard': typeof DashboardRoute
   '/loginIn': typeof LoginInRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/$assignmentId'
     | '/$courseId'
     | '/assignments'
+    | '/courseForm'
     | '/courses'
     | '/dashboard'
     | '/loginIn'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/$assignmentId'
     | '/$courseId'
     | '/assignments'
+    | '/courseForm'
     | '/courses'
     | '/dashboard'
     | '/loginIn'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/$assignmentId'
     | '/$courseId'
     | '/assignments'
+    | '/courseForm'
     | '/courses'
     | '/dashboard'
     | '/loginIn'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   AssignmentIdRoute: typeof AssignmentIdRoute
   CourseIdRoute: typeof CourseIdRoute
   AssignmentsRoute: typeof AssignmentsRoute
+  CourseFormRoute: typeof CourseFormRoute
   CoursesRoute: typeof CoursesRoute
   DashboardRoute: typeof DashboardRoute
   LoginInRoute: typeof LoginInRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/courses'
       fullPath: '/courses'
       preLoaderRoute: typeof CoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courseForm': {
+      id: '/courseForm'
+      path: '/courseForm'
+      fullPath: '/courseForm'
+      preLoaderRoute: typeof CourseFormRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/assignments': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   AssignmentIdRoute: AssignmentIdRoute,
   CourseIdRoute: CourseIdRoute,
   AssignmentsRoute: AssignmentsRoute,
+  CourseFormRoute: CourseFormRoute,
   CoursesRoute: CoursesRoute,
   DashboardRoute: DashboardRoute,
   LoginInRoute: LoginInRoute,

@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma, Course } from '@repo/database';
 import { PrismaService } from 'src/prisma.service';
+import { CourseCreate, CourseUpdate, CourseOut, CourseDelete } from '@repo/api/courses';
 
 @Injectable()
 export class CoursesService {
@@ -34,4 +35,37 @@ export class CoursesService {
     }
     return course;
   }
+
+  async createCourse(createCourseDto: CourseCreate): Promise<CourseOut> {
+    const newCourse = await this.prisma.course.create({data: createCourseDto});
+    return {
+      id: newCourse.id,
+      title: newCourse.title,
+      description: newCourse.description,
+      courseCode: newCourse.courseCode,
+      credits: newCourse.credits
+    };
+  }
+
+   async updateCourse(editCourseDto: CourseUpdate): Promise<CourseOut> {
+    const editedCourse = await this.prisma.course.update({data: editCourseDto, where: {id: editCourseDto.id}});
+    return {
+      id: editedCourse.id,
+      title: editedCourse.title,
+      description: editedCourse.description,
+      courseCode: editedCourse.courseCode,
+      credits: editedCourse.credits,
+    };
+  }
+   async deleteCourse(deleteCourseDto: CourseDelete): Promise<CourseOut> {
+    const deletedCourse = await this.prisma.course.delete({where: deleteCourseDto});
+    return {
+      id: deletedCourse.id,
+      title: deletedCourse.title,
+      description: deletedCourse.description,
+      courseCode: deletedCourse.courseCode,
+      credits: deletedCourse.credits,
+    };
+  }
 }
+

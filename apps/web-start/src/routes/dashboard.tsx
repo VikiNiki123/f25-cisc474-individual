@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router"
 import styles from "../styles/dashboard.module.css"
-import { Course } from "./courses"
+import type { CourseOut } from "@repo/api/courses"
 import { backendFetcher } from "../integrations/fetcher"
 import { useQuery } from "@tanstack/react-query"
 
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/dashboard")({
 
 const coursesQueryOptions = {
   queryKey: ['courses'],
-  queryFn: backendFetcher<Array<Course>>('/courses'),
+  queryFn: backendFetcher<Array<CourseOut>>('/courses'),
   initalData:[],
 }
 
@@ -57,7 +57,6 @@ function DashboardPage() {
                         <h3>{course.title}</h3>
                         <span className={styles.courseCode}>{course.courseCode}</span>
                       </div>
-                      <p className={styles.instructor}>Instructor: {course.instructor}</p>
                     </div>
 
                     {/* Assignments List */}
