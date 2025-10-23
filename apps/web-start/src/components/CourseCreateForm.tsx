@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { mutateBackend } from "../integrations/fetcher"
-import type { CourseOut, CourseCreate } from "@repo/api/courses"
 import styles from "../styles/courseForm.module.css"
+import type { CourseOut, CourseCreate } from "@repo/api/courses"
 
 function CourseCreateForm() {
   const [title, setTitle] = useState("")

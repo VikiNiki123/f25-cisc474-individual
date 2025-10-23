@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import { mutateBackend, backendFetcher } from "../integrations/fetcher"
-import type { CourseOut, CourseUpdate } from "@repo/api/courses"
 import styles from "../styles/courseForm.module.css"
+import type { CourseOut, CourseUpdate } from "@repo/api/courses"
 
 function CourseEditForm() {
   const [selectedCourse, setSelectedCourse] = useState<CourseOut | null>(null)
