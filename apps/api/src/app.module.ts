@@ -10,6 +10,7 @@ import { SubmissionsModule } from './submissions/submissions.module';
 import { GradesModule } from './grades/grades.module';
 import { AnnouncementsModule } from './announcements/announcements.module';
 import { ProfileModule } from './profiles/profiles.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -22,6 +23,7 @@ import { ProfileModule } from './profiles/profiles.module';
     GradesModule,
     ProfileModule,
     AnnouncementsModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

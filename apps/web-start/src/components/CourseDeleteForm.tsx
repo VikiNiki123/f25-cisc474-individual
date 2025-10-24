@@ -1,35 +1,35 @@
 import React, { useState } from "react"
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
-import { mutateBackend, backendFetcher } from "../integrations/fetcher"
+import { useQueryClient } from "@tanstack/react-query"
+import { useApiQuery, useApiMutation } from "../integrations/api"
 import styles from "../styles/courseForm.module.css"
-import type { CourseOut, CourseDelete } from "@repo/api/courses"
+import type { CourseOut } from "@repo/api/courses"
 
 function CourseDeleteForm() {
   const [selectedCourseId, setSelectedCourseId] = useState("")
   const queryClient = useQueryClient()
 
-  const { data: courses = [] } = useQuery({
-    queryKey: ["courses"],
-    queryFn: backendFetcher<Array<CourseOut>>("/courses"),
-  })
-
-  const mutation = useMutation({
+  const coursesQuery = useApiQuery<Array<CourseOut>>(["courses"], "/courses")
+  const courses = coursesQuery.data || []
+  
+  const deleteCourse = useApiMutation<{ id: number }, void>({
     mutationKey: ["delete-course"],
-    mutationFn: (courseToDelete: CourseDelete) =>
-      mutateBackend<CourseDelete, CourseOut>("/courses", "DELETE", courseToDelete),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["courses"] })
-      alert("🗑️ Course deleted successfully!")
-      setSelectedCourseId("")
-    },
+    endpoint: (variables) => ({
+      path: `/courses`,
+      method: "DELETE",
+    }),
+    invalidateKeys: [["courses"]],
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    if (!selectedCourseId) return
     if (confirm("Are you sure you want to delete this course?")) {
-      mutation.mutate({ id: Number(selectedCourseId) })
+      deleteCourse.mutate({ id:Number(selectedCourseId) })
     }
   }
+
+  if (coursesQuery.showLoading) return <p>Loading courses...</p>
+  if (coursesQuery.error) return <p>Error loading courses 😭</p>
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -40,14 +40,18 @@ function CourseDeleteForm() {
       >
         <option value="">Select a course to delete</option>
         {courses.map((course) => (
-          <option key={course.id} value={course.id.toString()}>
+          <option key={course.id} value={course.id}>
             {course.title}
           </option>
         ))}
       </select>
 
-      <button type="submit" className={styles.deleteButton} disabled={mutation.isPending}>
-        {mutation.isPending ? "Deleting..." : "Delete Course"}
+      <button
+        type="submit"
+        className={styles.deleteButton}
+        disabled={deleteCourse.isPending}
+      >
+        {deleteCourse.isPending ? "Deleting..." : "Delete Course"}
       </button>
     </form>
   )

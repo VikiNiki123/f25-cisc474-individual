@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
+import LoginButton from '../components/LoginButton';
 import styles from "../styles/loginIn.module.css";
 
 export const Route = createFileRoute('/loginIn')({
@@ -15,39 +16,13 @@ function LoginIn() {
                         <h2> - Sage Green Learning - </h2>
                         <p>Please sign in to your account</p>
                     </div>
-
-                    <form className={styles.loginForm}>
-                        <div className={styles.inputGroup}>
-                            <label htmlFor="username">Username</label>
-                            <input 
-                                type="text" 
-                                id="username" 
-                                className={styles.input}
-                                placeholder="Enter your username"
-                                required
-                            />
+                        
+                        <div className={styles.loginButton}>
+                        <LoginButton />
                         </div>
-
-                        <div className={styles.inputGroup}>
-                            <label htmlFor="password">Password</label>
-                            <input 
-                                type="password" 
-                                id="password" 
-                                className={styles.input}
-                                placeholder="Enter your password"
-                                required
-                            />
-                        </div>
-
-                        <Link to="/dashboard" className={styles.loginButton}>
-                            Log In
-                        </Link>
-                    </form>
 
                     <div className={styles.loginFooter}>
-                        <p>No Account? 
-                            <p className={styles.signupLink}> Sign up! </p>
-                        </p>
+                        <p>Log In with Auth0</p>
                     </div>
                 </div>
             </main>

@@ -1,30 +1,47 @@
 import { createFileRoute, Link } from "@tanstack/react-router"
 import styles from "../styles/dashboard.module.css"
 import type { CourseOut } from "@repo/api/courses"
-import { backendFetcher } from "../integrations/fetcher"
-import { useQuery } from "@tanstack/react-query"
-
+import { useApiQuery } from "../integrations/api"
 
 export const Route = createFileRoute("/dashboard")({
   component: DashboardPage,
 })
 
-const coursesQueryOptions = {
-  queryKey: ['courses'],
-  queryFn: backendFetcher<Array<CourseOut>>('/courses'),
-  initalData:[],
-}
-
-
 function DashboardPage() {
-  const {data, refetch, error, isFetching } = useQuery(coursesQueryOptions);
+  const { data, refetch, error, showLoading } = useApiQuery<Array<CourseOut>>(
+    ['courses'],
+    '/courses'
+  )
     
-  if (isFetching) return <div style={{fontSize:"40px", color: "#0f411eff", alignContent:"center", alignItems:"center", textAlign:"center"}}>Loading...</div>;
-  
-  if (error){
-    return <div style={{fontSize:"40px", color: "#815656", alignContent:"center", alignItems:"center", textAlign:"center"}}>Error: {error.message}</div>
+  if (showLoading) {
+    return (
+      <div style={{
+        fontSize: "40px",
+        color: "#0f411eff",
+        alignContent: "center",
+        alignItems: "center",
+        textAlign: "center"
+      }}>
+        Loading...
+      </div>
+    )
   }
-  if (data){
+  
+  if (error) {
+    return (
+      <div style={{
+        fontSize: "40px",
+        color: "#815656",
+        alignContent: "center",
+        alignItems: "center",
+        textAlign: "center"
+      }}>
+        Error: {error.message}
+      </div>
+    )
+  }
+  
+  if (data) {
     return (
       <div className={styles.dashboard}>
         {/* Navigation Header */}
@@ -46,7 +63,7 @@ function DashboardPage() {
                 <Link
                   key={course.id}
                   to={`/$courseId`}
-                  params={{ courseId: course.id.toString()}}
+                  params={{ courseId: course.id.toString() }}
                   className={styles.courseCard}
                 >
                   <div className={styles.courseImage}></div>
@@ -136,6 +153,5 @@ function DashboardPage() {
         </div>
       </div>
     )
-
   }
 }

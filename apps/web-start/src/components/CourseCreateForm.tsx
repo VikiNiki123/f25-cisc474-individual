@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { mutateBackend } from "../integrations/fetcher"
+import { useQueryClient } from "@tanstack/react-query"
+import { useApiMutation } from "../integrations/api"
 import styles from "../styles/courseForm.module.css"
 import type { CourseOut, CourseCreate } from "@repo/api/courses"
 
@@ -11,23 +11,18 @@ function CourseCreateForm() {
   const [credits, setCredits] = useState(0)
   const queryClient = useQueryClient()
 
-  const mutation = useMutation({
+  const createCourse = useApiMutation<CourseCreate, CourseOut>({
     mutationKey: ["create-course"],
-    mutationFn: (newCourse: CourseCreate) =>
-      mutateBackend<CourseCreate, CourseOut>("/courses", "POST", newCourse),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["courses"] })
-      alert("✅ Course created successfully!")
-      setTitle("")
-      setDescription("")
-      setCourseCode("")
-      setCredits(0)
-    },
+    endpoint: (variables) => ({
+      path: "/courses",
+      method: "POST",
+    }),
+    invalidateKeys: [["courses"]],
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    mutation.mutate({ title, description, courseCode, credits })
+    createCourse.mutate({ title, description, courseCode, credits })
   }
 
   return (
@@ -58,13 +53,17 @@ function CourseCreateForm() {
         required
       />
 
-      <button type="submit" className={styles.submitButton} disabled={mutation.isPending}>
-        {mutation.isPending ? "Creating..." : "Create Course"}
+      <button
+        type="submit"
+        className={styles.submitButton}
+        disabled={createCourse.isPending}
+      >
+        {createCourse.isPending ? "Creating..." : "Create Course"}
       </button>
 
-      {mutation.isError && (
+      {createCourse.isError && (
         <div className={styles.errorMessage}>
-          Error: {(mutation.error as Error).message}
+          Error: {(createCourse.error as Error).message}
         </div>
       )}
     </form>

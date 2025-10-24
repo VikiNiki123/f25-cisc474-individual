@@ -1,6 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router"
-import { useQuery } from "@tanstack/react-query"
-import { backendFetcher } from "../integrations/fetcher"
+import { useApiQuery } from "../integrations/api"
 import styles from "../styles/courses.module.css"
 import type { CourseOut } from "@repo/api/courses"
 
@@ -9,16 +8,13 @@ export const Route = createFileRoute("/courses")({
   component: CoursesTab,
 })
 
-const coursesQueryOptions = {
-  queryKey: ["courses"],
-  queryFn: backendFetcher<Array<CourseOut>>("/courses"),
-  initialData: [],
-}
-
 function CoursesTab() {
-  const { data, isFetching, error } = useQuery(coursesQueryOptions)
+  const { data, showLoading, error } = useApiQuery<Array<CourseOut>>(
+    ["courses"],
+    "/courses"
+  )
 
-  if (isFetching)
+  if (showLoading)
     return (
       <div
         style={{

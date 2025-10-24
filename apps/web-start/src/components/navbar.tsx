@@ -19,7 +19,7 @@ export default function Navbar() {
     { href: "/courses", label: "Courses" },
     { href: "/assignment", label: "Assignments" },
     { href: "/profile", label: "Profile" },
-    { href: "/", label: "Log In/Out" },
+    { href: "/", label: "Log In" },
   ]
 
   return (

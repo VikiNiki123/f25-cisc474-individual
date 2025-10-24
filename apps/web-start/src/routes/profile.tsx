@@ -1,4 +1,6 @@
 "use client";
+import React from "react";
+import LogoutButton from '../components/LogoutButton';
 import { createFileRoute } from '@tanstack/react-router';
 import styles from "../styles/profile.module.css";
 
@@ -54,8 +56,9 @@ export default function Profile() {
               </div>
 
               <div className={styles.buttonGroup}>
-                <button className={styles.button}>Edit Profile</button>
-                <button className={`${styles.button} ${styles.deleteButton}`}>Delete Account</button>
+                <div className={`${styles.button} ${styles.deleteButton}`}>
+                  <LogoutButton />
+                </div>
               </div>
             </div>
           </div>

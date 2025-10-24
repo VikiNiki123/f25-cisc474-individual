@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
-import { mutateBackend, backendFetcher } from "../integrations/fetcher"
+import { useQueryClient } from "@tanstack/react-query"
+import { useApiQuery, useApiMutation } from "../integrations/api"
 import styles from "../styles/courseForm.module.css"
 import type { CourseOut, CourseUpdate } from "@repo/api/courses"
 
@@ -11,23 +11,21 @@ function CourseEditForm() {
   const [courseCode, setCourseCode] = useState("")
   const queryClient = useQueryClient()
 
-  const { data: courses = [] } = useQuery({
-    queryKey: ["courses"],
-    queryFn: backendFetcher<Array<CourseOut>>("/courses"),
-  })
+  const coursesQuery = useApiQuery<Array<CourseOut>>(["courses"], "/courses")
 
-  const mutation = useMutation({
+  const editCourse = useApiMutation<CourseUpdate, CourseOut>({
     mutationKey: ["edit-course"],
-    mutationFn: (courseToEdit: CourseUpdate) =>
-      mutateBackend<CourseUpdate, CourseOut>("/courses", "PUT", courseToEdit),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["courses"] })
-      alert("✅ Course updated successfully!")
-    },
+    endpoint: (variables) => ({
+      path: `/courses`,
+      method: "PUT",
+    }),
+    invalidateKeys: [["courses"]],
   })
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const course = JSON.parse(e.target.value) as CourseOut
+    const value = e.target.value
+    if (!value) return
+    const course = JSON.parse(value) as CourseOut
     setSelectedCourse(course)
     setTitle(course.title)
     setDescription(course.description || "")
@@ -37,13 +35,18 @@ function CourseEditForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!selectedCourse) return
-    mutation.mutate({
-      id: selectedCourse.id,
+    editCourse.mutate({
+      id: Number(selectedCourse.id),
       title,
       description,
       courseCode,
     })
   }
+
+  if (coursesQuery.showLoading) return <p>Loading courses...</p>
+  if (coursesQuery.error) return <p>Error loading courses 😭</p>
+
+  const courses = coursesQuery.data || []
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -76,8 +79,12 @@ function CourseEditForm() {
             onChange={(e) => setDescription(e.target.value)}
             required
           />
-          <button type="submit" className={styles.submitButton} disabled={mutation.isPending}>
-            {mutation.isPending ? "Saving..." : "Save Changes"}
+          <button
+            type="submit"
+            className={styles.submitButton}
+            disabled={editCourse.isPending}
+          >
+            {editCourse.isPending ? "Saving..." : "Save Changes"}
           </button>
         </>
       )}

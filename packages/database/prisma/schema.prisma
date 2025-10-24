@@ -37,10 +37,10 @@ enum AssignmentType {
 // --- Models ---
 model User {
   id             Int             @id @default(autoincrement())
-  firstName      String
-  lastName       String
-  email          String          @unique
-  role           Role
+  firstName      String?
+  lastName       String?
+  email          String?          @unique
+  role           Role?
   profile        Profile?
   enrollments    Enrollment[]
   submissions    Submission[]
